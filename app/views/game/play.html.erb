@@ -1,0 +1,40 @@
+<% img_url = "http://localhost:3000/assets/images/" %>
+<% img_ext = ".png" %>
+<% rock_url = "http://localhost:3000/rock" %>
+<% paper_url = "http://localhost:3000/paper" %>
+<% scissors_url = "http://localhost:3000/scissors" %>
+
+<div class="container">
+  <div class="row margin-above-top-md">
+    <div class="col-md-offset-3 col-md-2">
+      <a href="<%= rock_url %>">Play Rock</a>
+    </div>
+    <div class="col-md-2">
+      <a href="<%= paper_url %>">Play Paper</a>
+    </div>
+    <div class="col-md-2">
+      <a href="<%= scissors_url %>">Play Scissors</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row margin-above-top-md">
+    <div class="col-md-offset-2 col-md-4">
+      <img src="<%= img_url + @user_move + img_ext  %>" width="200">  </img>
+    </div>
+    <div class="col-md-4">
+      <img src="<%= img_url + @computer_move + img_ext  %>" width="200"></img>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row margin-above-top-md">
+    <div class="col-md-offset-4 col-md-2">
+      <p> You played: <%= @user_move %> </p>
+      <p> Computer played: <%= @computer_move %> </p>
+      <p> Result: <%= @result %> </p>
+    </div>
+  </div>
+</div>
