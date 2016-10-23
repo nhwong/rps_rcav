@@ -10,14 +10,17 @@ class GameController < ApplicationController
 
     if @user_move == @computer_move
       @result = "Tie"
+      @header_class = " bg-warning"
     else
       case @user_move
       when @@rock
         case @computer_move
         when @@paper
           @result = "Lose"
+          @header_class = " bg-danger"
         when @@scissors
           @result = "Win"
+          @header_class = " bg-success"
         else
           abort("Error - Unknown computer move found")
         end
@@ -25,8 +28,10 @@ class GameController < ApplicationController
         case @computer_move
         when @@scissors
           @result = "Lose"
+          @header_class = " bg-danger"
         when @@rock
           @result = "Win"
+          @header_class = " bg-success"
         else
           abort("Error - Unknown computer move found")
         end
@@ -34,13 +39,17 @@ class GameController < ApplicationController
         case @computer_move
         when @@rock
           @result = "Lose"
+          @header_class = " bg-danger"
         when @@paper
           @result = "Win"
+          @header_class = " bg-success"
         else
           abort("Error - Unknown computer move found")
         end
       end
     end
+
     render("game/play.html.erb")
+
   end
 end

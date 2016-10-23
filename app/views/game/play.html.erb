@@ -6,35 +6,44 @@
 
 <div class="container">
   <div class="row margin-above-top-md">
-    <div class="col-md-offset-3 col-md-2">
-      <a href="<%= rock_url %>">Play Rock</a>
-    </div>
-    <div class="col-md-2">
-      <a href="<%= paper_url %>">Play Paper</a>
-    </div>
-    <div class="col-md-2">
-      <a href="<%= scissors_url %>">Play Scissors</a>
+    <div class="col-md-offset-2 col-md-8">
+      <div class="btn-group btn-group-lg btn-group-justified">
+        <a class="<%= "btn btn-primary" + if @user_move=="rock" then " active" else "" end %>" href="<%= rock_url %>">
+          Play Rock
+        </a>
+        <a class="<%= "btn btn-primary" + if @user_move=="paper" then " active" else "" end %>" href="<%= paper_url %>">
+          Play Paper
+        </a>
+        <a class="<%= "btn btn-primary" + if @user_move=="scissors" then " active" else "" end %>" href="<%= scissors_url %>">
+          Play Scissors
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
   <div class="row margin-above-top-md">
     <div class="col-md-offset-2 col-md-4">
-      <img src="<%= img_url + @user_move + img_ext  %>" width="200">  </img>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="text-center panel-title"> You Played: <%= @user_move.capitalize %> </h2>
+        </div>
+        <img class="center-block" src="<%= img_url + @user_move + img_ext  %>" width="300">  </img>
+      </div>
     </div>
     <div class="col-md-4">
-      <img src="<%= img_url + @computer_move + img_ext  %>" width="200"></img>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="text-center panel-title"> Computer Played: <%= @computer_move.capitalize %> </h2>
+        </div>
+        <img class="center-block" src="<%= img_url + @computer_move + img_ext  %>" width="300"></img>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
   <div class="row margin-above-top-md">
-    <div class="col-md-offset-4 col-md-2">
-      <p> You played: <%= @user_move %> </p>
-      <p> Computer played: <%= @computer_move %> </p>
-      <p> Result: <%= @result %> </p>
+    <div class="col-md-offset-4 col-md-4">
+      <h1 class="text-center + <%= @header_class %>" > You <%= @result %>! </h1>
     </div>
   </div>
+
 </div>
